@@ -20,6 +20,8 @@
 	"dependencies": {
 		"@sveltejs/adapter-node": "^5.2.9",
 		"@sveltejs/kit": "^2.0.0",
+		"install": "^0.13.0",
+		"lucide-svelte": "^0.469.0",
 		"svelte": "^5.0.0"
 	},
 	"devDependencies": {

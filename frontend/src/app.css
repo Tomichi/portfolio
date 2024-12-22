@@ -1,3 +1,22 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+* {
+	font-family: 'Roboto Flex', serif;
+	font-optical-sizing: auto;
+	font-weight: 100;
+	font-style: normal;
+	font-variation-settings:
+		'slnt' 0,
+		'wdth' 100,
+		'GRAD' -72,
+		'XOPQ' 96,
+		'XTRA' 468,
+		'YOPQ' 79,
+		'YTAS' 750,
+		'YTDE' -203,
+		'YTFI' 738,
+		'YTLC' 514,
+		'YTUC' 712;
+}
