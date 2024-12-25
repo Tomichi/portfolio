@@ -1,52 +1,38 @@
-// src/lib/stores/scroll.ts
 import { cubicOut } from 'svelte/easing';
 
-interface ScrollOptions {
-	duration?: number;
-	offset?: number;
-	easing?: (t: number) => number;
-}
+export function scrollToSection(
+  sectionId: string, 
+  { 
+    duration = 1000, 
+    offset = 80, 
+    easing = cubicOut 
+  } = {}
+) {
+  const element = document.querySelector(sectionId);
+  if (!element) return;
 
-export function createScrollAnimation(defaultOptions: ScrollOptions = {}) {
-	const { duration = 800, offset = 0, easing = cubicOut } = defaultOptions;
+  const startPosition = window.scrollY;
+  const targetPosition = element.getBoundingClientRect().top + startPosition - offset;
+  const startTime = performance.now();
 
-	function scrollToSection(sectionId: string, options: ScrollOptions = {}) {
-		const element = document.querySelector(sectionId);
-		if (!element) return;
+  function animate(currentTime: number) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    const easedProgress = easing(progress);
+    const nextScrollPosition = startPosition + (targetPosition - startPosition) * easedProgress;
 
-		const {
-			duration: customDuration = duration,
-			offset: customOffset = offset,
-			easing: customEasing = easing
-		} = options;
+    window.scrollTo({
+      top: nextScrollPosition,
+      behavior: 'auto' // Use auto to prevent conflict with our custom animation
+    });
 
-		const elementPosition = element.getBoundingClientRect().top;
-		const offsetPosition = elementPosition + window.scrollY - customOffset;
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    } else {
+      history.pushState(null, '', sectionId);
+    }
+  }
 
-		// Animate scroll
-		const startPosition = window.scrollY;
-		const distance = offsetPosition - startPosition;
-		const startTime = performance.now();
-
-		function animate() {
-			const currentTime = performance.now();
-			const elapsed = currentTime - startTime;
-			const progress = Math.min(elapsed / customDuration, 1);
-
-			const easedProgress = customEasing(progress);
-			const nextPosition = startPosition + distance * easedProgress;
-
-			window.scrollTo({ top: nextPosition });
-
-			if (progress < 1) {
-				requestAnimationFrame(animate);
-			} else {
-				history.pushState(null, '', sectionId);
-			}
-		}
-
-		requestAnimationFrame(animate);
-	}
-
-	return { scrollToSection };
+  requestAnimationFrame(animate);
 }

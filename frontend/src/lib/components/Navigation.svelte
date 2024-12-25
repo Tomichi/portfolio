@@ -2,8 +2,7 @@
 	import LinkedIn from '../icons/LinkedIn.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle/ThemeToggle.svelte';
 	import NavLink from '$lib/components/NavLink.svelte';
-	import { createScrollAnimation } from '$lib/stores/scroll';
-	import { cubicInOut } from 'svelte/easing';
+	import { scrollToSection } from '$lib/stores/scroll';
 
 	const navLinks = [
 		{ href: '#about', label: 'About' },
@@ -11,16 +10,11 @@
 		{ href: '#contact', label: 'Contact' }
 	];
 
-	const scroll = createScrollAnimation({
-		duration: 1000,
-		offset: 80, // Offset for fixed header
-		easing: cubicInOut
-	});
 
 	function handleNavClick(event: MouseEvent, href: string) {
 		if (href.startsWith('#')) {
 			event.preventDefault();
-			scroll.scrollToSection(href);
+			scrollToSection(href);
 		}
 	}
 </script>
