@@ -7,11 +7,10 @@
 		buttonHref: string;
 	}
 	let { name, role, imageUrl, buttonText, buttonHref }: Props = $props();
-	let section: HTMLElement;
 </script>
 
 <section
-	bind:this={section}
+	id="welcome"
 	class="relative flex min-h-screen items-center justify-center bg-background px-4 pt-20"
 >
 	<div class="text-center">

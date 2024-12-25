@@ -1,76 +1,123 @@
 <script lang="ts">
 	const skills = [
 		{
-			category: 'Core Technologies',
-			items: ['Python', 'FastAPI', 'C++', 'Machine Learning', 'Computer Vision']
+			category: 'Data Engineering',
+			items: [
+				'Python (FastAPI, Scrapy)',
+				'PostgreSQL',
+				'MongoDB',
+				'ETL Pipeline Design',
+				'Airflow',
+				'Docker'
+			]
 		},
 		{
-			category: 'Data Engineering',
-			items: ['PostgreSQL', 'MongoDB', 'ETL', 'Airflow', 'Docker']
+			category: 'Machine Learning & CV',
+			items: [
+				'PyTorch',
+				'Deep Learning',
+				'Computer Vision',
+				'CUDA',
+				'C++ (14/17)',
+				'Parallel Computing'
+			]
 		},
 		{
 			category: 'Scientific Computing',
-			items: ['NumPy', 'PyTorch', 'HPC', 'Computational Mathematics', 'Graph Theory']
+			items: ['HPC', 'Graph Theory', 'NumPy', 'Computational Mathematics', 'Algorithm Design']
 		}
 	];
 
-	const education = [
+	const certifications = [
 		{
-			degree: "Master's in Computational Mathematics",
-			institution: 'VSB - Technical University of Ostrava',
-			period: '2018 - 2020',
-			honors: 'Graduated with honors, Best thesis diploma at department',
-			details: 'Specialized in parallel computing and boundary elements method in Laplace equation'
-		},
-		{
-			degree: "Bachelor's in Computational and Applied Mathematics",
-			institution: 'VSB - Technical University of Ostrava',
-			period: '2015 - 2018',
-			honors: 'Best thesis diploma at department',
-			details: 'Focus on graph theory and parallel programming'
+			issuer: 'NVIDIA',
+			credentials: [
+				{
+					name: 'Fundamentals of Deep Learning for Computer Vision',
+					date: 'Feb 2020'
+				}
+			]
 		}
 	];
 </script>
 
-<section id="about" class="bg-muted/50 py-20">
+<section id="about" class="bg-muted/80 py-20">
 	<div class="container mx-auto px-4">
 		<!-- Header -->
 		<div class="mx-auto mb-16 max-w-3xl text-center">
 			<h2 class="mb-4 text-3xl font-bold">About Me</h2>
 			<div class="mx-auto mb-8 h-1 w-20 bg-primary"></div>
 			<p class="text-lg text-muted-foreground">
-				Data Engineer & Computer Vision Specialist with a strong mathematical background
+				Data Engineer & Computer Vision Specialist with Strong Mathematical Foundation
 			</p>
 		</div>
 
 		<div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
-			<!-- Left Column: Bio -->
+			<!-- Left Column -->
 			<div class="space-y-6">
+				<!-- Professional Summary -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Professional Journey</h3>
+					<h3 class="mb-4 text-xl font-semibold">Professional Summary</h3>
 					<p class="leading-relaxed text-muted-foreground">
-						Currently working as a Data Engineer at OUTFINDO, where I specialize in building robust
-						data pipelines and machine learning systems. With experience spanning from computer
-						vision at SANEZOO to research in high-performance computing at IT4Innovations, I bring a
-						unique blend of theoretical knowledge and practical expertise to solve complex technical
-						challenges.
+						Data Engineer with expertise in computer vision and machine learning. Combining strong
+						mathematical background with practical engineering skills to build scalable data
+						solutions and intelligent systems. Experienced in high-performance computing and
+						parallel programming.
 					</p>
 				</div>
 
+				<!-- Education -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Academic Excellence</h3>
-					{#each education as { degree, institution, period, honors, details }}
-						<div class="mb-6 last:mb-0">
-							<h4 class="text-lg font-medium">{degree}</h4>
-							<p class="mb-1 text-sm text-muted-foreground">{institution} • {period}</p>
-							<p class="mb-2 text-sm text-primary">{honors}</p>
-							<p class="text-sm text-muted-foreground">{details}</p>
-						</div>
-					{/each}
+					<h3 class="mb-4 text-xl font-semibold">Education</h3>
+					<div class="space-y-3">
+						<h4 class="text-lg font-medium">Master's in Computational Mathematics</h4>
+						<p class="text-sm text-muted-foreground">
+							VSB - Technical University of Ostrava • 2018-2020
+						</p>
+						<p class="text-sm text-primary">Best Thesis Award 2020 • Graduated with honors</p>
+						<p class="text-sm text-muted-foreground">
+							Focused on solving discrete problems with boundary elements method in Laplace equation
+							in 3D. Implemented parallel computation solutions using graph coloring techniques.
+						</p>
+					</div>
+
+					<div class="space-y-3">
+						<h4 class="text-lg font-medium">Bachelor's in Computational and Applied Mathematics</h4>
+						<p class="text-sm text-muted-foreground">
+							VSB - Technical University of Ostrava • 2015-2018
+						</p>
+						<p class="text-sm text-primary">Best Thesis Award 2018</p>
+						<p class="text-sm text-muted-foreground">
+							Research in graph theory, focusing on parallel programming for graph labeling
+							problems. Active member of ACM-ICPC and Support Talented Students program.
+						</p>
+					</div>
+				</div>
+
+				<!-- Professional Certifications -->
+				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
+					<h3 class="mb-4 text-xl font-semibold">Professional Certifications</h3>
+					<div class="space-y-6">
+						{#each certifications as cert}
+							<div class="space-y-3">
+								<h4 class="text-lg font-medium">{cert.issuer}</h4>
+								<ul class="space-y-2">
+									{#each cert.credentials as cred}
+										<li class="text-sm">
+											<div class="font-medium">{cred.name}</div>
+											<div class="text-muted-foreground">
+												Issued {cred.date}
+											</div>
+										</li>
+									{/each}
+								</ul>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
 
-			<!-- Right Column: Skills & Expertise -->
+			<!-- Right Column -->
 			<div class="space-y-6">
 				{#each skills as { category, items }}
 					<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
@@ -85,25 +132,31 @@
 					</div>
 				{/each}
 
-				<!-- Achievements -->
+				<!-- Additional Achievements -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Key Highlights</h3>
+					<h3 class="mb-4 text-xl font-semibold">Additional Achievements</h3>
 					<ul class="space-y-3 text-muted-foreground">
 						<li class="flex items-start">
 							<span class="mr-2 text-primary">→</span>
-							<span>Developed ETL pipelines and ML systems at OUTFINDO</span>
+							<span
+								>2nd Place at European Healthcare Hackathon - Hospital Surveillance AI Project
+								(2023)</span
+							>
 						</li>
 						<li class="flex items-start">
 							<span class="mr-2 text-primary">→</span>
-							<span>Implemented 3D bin picking solutions using computer vision</span>
+							<span>Best Thesis Award - Applied Mathematics Department (2018 & 2020)</span>
 						</li>
 						<li class="flex items-start">
 							<span class="mr-2 text-primary">→</span>
-							<span>Research in graph theory using high-performance computing</span>
+							<span>Member of Support Talented Students Program (2016-2020)</span>
 						</li>
 						<li class="flex items-start">
 							<span class="mr-2 text-primary">→</span>
-							<span>Multiple certifications in MongoDB and data modeling</span>
+							<span>
+								ICPC Programming Contest: 3x CERC (Central European Regional Contest) Participant
+								(2015-2017)
+							</span>
 						</li>
 					</ul>
 				</div>
