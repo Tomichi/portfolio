@@ -3,6 +3,132 @@
 	import AboutMe from '$lib/components/AboutMe.svelte';
 	import WorkExperience from '$lib/components/WorkExperience.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import {
+		type Education,
+		type Skill,
+		type Achievement,
+		type Certification,
+		type Language,
+		type Hobby
+	} from '$lib/components/types';
+
+	const education: Education[] = [
+		{
+			degree: "Master's in Computational Mathematics",
+			institution: 'VSB - Technical University of Ostrava',
+			period: '2018-2020',
+			thesis: {
+				name: 'Graph Theory Tools Used for BEM',
+				url: 'https://dspace.vsb.cz/handle/10084/140601'
+			},
+			awards: [
+				{
+					name: 'Best Thesis Award 2020',
+					url: 'https://www.vsb.cz/cs/detail-novinky/?reportId=41207&linkBack=%2Fcs%2Fo-univerzite%2Fnovinky%2Faktuality%2Findex.html'
+				},
+				{
+					name: 'Graduated with honors'
+				}
+			],
+			description:
+				'Focused on solving discrete problems with boundary elements method in Laplace equation in 3D. Implemented parallel computation solutions using graph coloring techniques.'
+		},
+		{
+			degree: "Bachelor's in Computational Mathematics",
+			institution: 'VSB - Technical University of Ostrava',
+			period: '2015-2018',
+			thesis: {
+				name: 'Graph labelings',
+				url: 'https://dspace.vsb.cz/handle/10084/128474'
+			},
+			awards: [
+				{
+					name: 'Best Thesis Award 2018',
+					url: 'https://www.fei.vsb.cz/470/cs/o-katedre/aktuality/detail-aktuality/index.html?reportId=37117&linkBack=%2F470%2Fcs%2Fstudium.old%2Foceneni-stu%2Findex.html'
+				}
+			],
+			description:
+				'Research in graph theory, focusing on parallel programming for graph labeling problems. Active member of ACM-ICPC and Support Talented Students program.'
+		}
+	];
+
+	const skills: Skill[] = [
+		{
+			category: 'Data Engineering',
+			items: ['Python (FastAPI, Scrapy)', 'PostgreSQL', 'ETL Pipeline Design', 'Airflow', 'Docker']
+		},
+		{
+			category: 'Machine Learning & CV',
+			items: [
+				'PyTorch',
+				'Deep Learning',
+				'Computer Vision',
+				'CUDA',
+				'C++ (14/17)',
+				'Parallel Computing'
+			]
+		},
+		{
+			category: 'Scientific Computing',
+			items: ['HPC', 'Graph Theory', 'NumPy', 'Computational Mathematics', 'Algorithm Design']
+		}
+	];
+
+	const achievements: Achievement[] = [
+		{
+			text: '2nd Place at European Healthcare Hackathon - Hospital Surveillance AI Project (2023)'
+		},
+		{ text: 'Best Thesis Award - Applied Mathematics Department (2018 & 2020)' },
+		{ text: 'Member of Support Talented Students Program (2016-2020)' },
+		{
+			text: 'ICPC Programming Contest: 3x CERC (Central European Regional Contest) Participant (2015-2017)'
+		}
+	];
+	const certifications: Certification[] = [
+		{
+			issuer: 'NVIDIA',
+			credentials: [
+				{
+					name: 'Fundamentals of Deep Learning for Computer Vision',
+					date: 'Feb 2020'
+				}
+			]
+		}
+	];
+
+	const languages: Language[] = [
+		{
+			name: 'English',
+			level: 'Upper Intermediate B2'
+		},
+		{
+			name: 'Czech',
+			level: 'Native'
+		},
+		{
+			name: 'Norwegian (Bokmål)',
+			level: 'Basic A2'
+		}
+	];
+
+	const hobbies: Hobby[] = [
+		{
+			name: 'Climbing & Bouldering',
+			description: 'Regular climber with focus on technical routes and problem solving'
+		},
+		{
+			name: 'Hiking',
+			description: 'Active mountaineer'
+		},
+		{
+			name: 'Competitive Programming',
+			description: 'Project Euler (50+ problems), UVA Online Judge participant'
+		},
+		{
+			name: 'Self-Learning',
+			description: 'Continuous learning in mathematics, algorithms and new technologies'
+		}
+	];
 </script>
 
 <Hero
@@ -12,6 +138,16 @@
 	buttonText="Get in Touch"
 	buttonHref="#contact"
 />
-<AboutMe />
+<AboutMe
+	title="About me"
+	subtitle="Data Engineer & Computer Vision Specialist with Strong Mathematical Foundation"
+	professionalSummary="Data Engineer & Research Engineer with expertise in computer vision and machine learning. Combining strong mathematical background with practical engineering skills to build scalable data solutions and intelligent systems. Experienced in high-performance computing and parallel programming."
+	{education}
+	{skills}
+	{achievements}
+	{certifications}
+	{languages}
+	{hobbies}
+/>
 <WorkExperience />
 <Footer />

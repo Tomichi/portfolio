@@ -1,55 +1,45 @@
 <script lang="ts">
-	const skills = [
-		{
-			category: 'Data Engineering',
-			items: [
-				'Python (FastAPI, Scrapy)',
-				'PostgreSQL',
-				'MongoDB',
-				'ETL Pipeline Design',
-				'Airflow',
-				'Docker'
-			]
-		},
-		{
-			category: 'Machine Learning & CV',
-			items: [
-				'PyTorch',
-				'Deep Learning',
-				'Computer Vision',
-				'CUDA',
-				'C++ (14/17)',
-				'Parallel Computing'
-			]
-		},
-		{
-			category: 'Scientific Computing',
-			items: ['HPC', 'Graph Theory', 'NumPy', 'Computational Mathematics', 'Algorithm Design']
-		}
-	];
+	import {
+		type Skill,
+		type Achievement,
+		type Certification,
+		type Education,
+		type Language,
+		type Hobby
+	} from './types';
 
-	const certifications = [
-		{
-			issuer: 'NVIDIA',
-			credentials: [
-				{
-					name: 'Fundamentals of Deep Learning for Computer Vision',
-					date: 'Feb 2020'
-				}
-			]
-		}
-	];
+	interface Props {
+		title: string;
+		subtitle: string;
+		professionalSummary: string;
+		education: Education[];
+		certifications: Certification[];
+		skills: Skill[];
+		achievements: Achievement[];
+		languages: Language[];
+		hobbies: Hobby[];
+	}
+
+	let {
+		title,
+		subtitle,
+		professionalSummary,
+		education,
+		certifications,
+		skills,
+		achievements,
+		languages,
+		hobbies
+	}: Props = $props();
 </script>
 
 <section id="about" class="bg-muted/80 py-20">
 	<div class="container mx-auto px-4">
 		<!-- Header -->
 		<div class="mx-auto mb-16 max-w-3xl text-center">
-			<h2 class="mb-4 text-3xl font-bold">About Me</h2>
+			<h2 class="mb-4 text-3xl font-bold">{title}</h2>
 			<div class="mx-auto mb-8 h-1 w-20 bg-primary"></div>
-			<p class="text-lg text-muted-foreground">
-				Data Engineer & Computer Vision Specialist with Strong Mathematical Foundation
-			</p>
+			<p class="text-lg text-muted-foreground">{subtitle}</p>
 		</div>
 
 		<div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
@@ -59,42 +49,62 @@
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
 					<h3 class="mb-4 text-xl font-semibold">Professional Summary</h3>
 					<p class="leading-relaxed text-muted-foreground">
-						Data Engineer with expertise in computer vision and machine learning. Combining strong
-						mathematical background with practical engineering skills to build scalable data
-						solutions and intelligent systems. Experienced in high-performance computing and
-						parallel programming.
+						{professionalSummary}
 					</p>
 				</div>
 
-				<!-- Education -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
 					<h3 class="mb-4 text-xl font-semibold">Education</h3>
-					<div class="space-y-3">
-						<h4 class="text-lg font-medium">Master's in Computational Mathematics</h4>
-						<p class="text-sm text-muted-foreground">
-							VSB - Technical University of Ostrava • 2018-2020
-						</p>
-						<p class="text-sm text-primary">Best Thesis Award 2020 • Graduated with honors</p>
-						<p class="text-sm text-muted-foreground">
-							Focused on solving discrete problems with boundary elements method in Laplace equation
-							in 3D. Implemented parallel computation solutions using graph coloring techniques.
-						</p>
-					</div>
+					{#each education as edu}
+						<div class="mb-6 space-y-3">
+							<h4 class="text-lg font-medium">{edu.degree}</h4>
+							<p class="text-sm text-muted-foreground">
+								{edu.institution} • {edu.period}
+							</p>
 
-					<div class="space-y-3">
-						<h4 class="text-lg font-medium">Bachelor's in Computational and Applied Mathematics</h4>
-						<p class="text-sm text-muted-foreground">
-							VSB - Technical University of Ostrava • 2015-2018
-						</p>
-						<p class="text-sm text-primary">Best Thesis Award 2018</p>
-						<p class="text-sm text-muted-foreground">
-							Research in graph theory, focusing on parallel programming for graph labeling
-							problems. Active member of ACM-ICPC and Support Talented Students program.
-						</p>
-					</div>
+							{#if edu.thesis}
+								<div class="text-sm">
+									<a
+										href={edu.thesis.url}
+										class="text-primary hover:underline"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{edu.thesis.name}
+									</a>
+									{#if edu.thesis.description}
+										<p class="mt-1 text-muted-foreground">{edu.thesis.description}</p>
+									{/if}
+								</div>
+							{/if}
+
+							{#if edu.awards?.length}
+								<div class="space-y-1">
+									{#each edu.awards as award}
+										{#if award.url}
+											<a
+												href={award.url}
+												class="block text-sm text-primary hover:underline"
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{award.name}
+											</a>
+										{:else}
+											<p class="text-sm text-primary">{award.name}</p>
+										{/if}
+									{/each}
+								</div>
+							{/if}
+
+							<p class="text-sm text-muted-foreground">
+								{edu.description}
+							</p>
+						</div>
+					{/each}
 				</div>
 
-				<!-- Professional Certifications -->
+				<!-- Certifications -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
 					<h3 class="mb-4 text-xl font-semibold">Professional Certifications</h3>
 					<div class="space-y-6">
@@ -111,6 +121,21 @@
 										</li>
 									{/each}
 								</ul>
+							</div>
+						{/each}
+					</div>
+				</div>
+
+				<!-- Hobbies & Interests -->
+				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
+					<h3 class="mb-4 text-xl font-semibold">Hobbies & Interests</h3>
+					<div class="space-y-4">
+						{#each hobbies as hobby}
+							<div>
+								<h4 class="text-base font-medium text-primary">{hobby.name}</h4>
+								{#if hobby.description}
+									<p class="mt-1 text-sm text-muted-foreground">{hobby.description}</p>
+								{/if}
 							</div>
 						{/each}
 					</div>
@@ -132,33 +157,32 @@
 					</div>
 				{/each}
 
-				<!-- Additional Achievements -->
+				<!-- Achievements -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
 					<h3 class="mb-4 text-xl font-semibold">Additional Achievements</h3>
 					<ul class="space-y-3 text-muted-foreground">
-						<li class="flex items-start">
-							<span class="mr-2 text-primary">→</span>
-							<span
-								>2nd Place at European Healthcare Hackathon - Hospital Surveillance AI Project
-								(2023)</span
-							>
-						</li>
-						<li class="flex items-start">
-							<span class="mr-2 text-primary">→</span>
-							<span>Best Thesis Award - Applied Mathematics Department (2018 & 2020)</span>
-						</li>
-						<li class="flex items-start">
-							<span class="mr-2 text-primary">→</span>
-							<span>Member of Support Talented Students Program (2016-2020)</span>
-						</li>
-						<li class="flex items-start">
-							<span class="mr-2 text-primary">→</span>
-							<span>
-								ICPC Programming Contest: 3x CERC (Central European Regional Contest) Participant
-								(2015-2017)
-							</span>
-						</li>
+						{#each achievements as achievement}
+							<li class="flex items-start">
+								<span class="mr-2 text-primary">→</span>
+								<span>{achievement.text}</span>
+							</li>
+						{/each}
 					</ul>
+				</div>
+
+				<!-- Languages -->
+				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
+					<h3 class="mb-4 text-xl font-semibold">Languages</h3>
+					<div class="space-y-3">
+						{#each languages as lang}
+							<div class="flex items-center justify-between">
+								<span class="font-medium">{lang.name}</span>
+								<div class="text-sm">
+									<span class="text-primary">{lang.level}</span>
+								</div>
+							</div>
+						{/each}
+					</div>
 				</div>
 			</div>
 		</div>

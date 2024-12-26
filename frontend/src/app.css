@@ -3,6 +3,9 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+	a {
+		@apply cursor-pointer;
+	}
 	:root {
 		--background: 0 0% 100%;
 		--foreground: 222.2 84% 4.9%;
