@@ -10,7 +10,6 @@
 		{ href: '#contact', label: 'Contact' }
 	];
 
-
 	function handleNavClick(event: MouseEvent, href: string) {
 		if (href.startsWith('#')) {
 			event.preventDefault();

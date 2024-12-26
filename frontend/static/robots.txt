@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tomas-michna.com/sitemap.xml

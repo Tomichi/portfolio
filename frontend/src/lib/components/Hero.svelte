@@ -17,10 +17,11 @@
 		<div class="mb-10 flex items-center justify-center md:mb-[40px]">
 			<div class="relative inline-block">
 				<img
+					loading="lazy"
+					decoding="async"
 					class="h-[80px] w-[80px] rounded-full border-2 border-muted object-cover transition-transform duration-300 hover:scale-105 md:h-[350px] md:w-[350px]"
 					src={imageUrl}
 					alt={`${name} - Photo`}
-					loading="eager"
 				/>
 			</div>
 		</div>

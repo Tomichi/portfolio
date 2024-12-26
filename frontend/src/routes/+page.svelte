@@ -2,6 +2,7 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import AboutMe from '$lib/components/AboutMe.svelte';
 	import WorkExperience from '$lib/components/WorkExperience.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <Hero
@@ -13,3 +14,4 @@
 />
 <AboutMe />
 <WorkExperience />
+<Footer />
