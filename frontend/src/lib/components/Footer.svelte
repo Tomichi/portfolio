@@ -10,7 +10,7 @@
 	];
 </script>
 
-<footer class="border-t bg-muted/80">
+<footer class="border-t bg-background">
 	<div class="container mx-auto px-4 py-6">
 		<div class="flex flex-wrap items-center justify-between gap-4">
 			<span class="text-sm text-muted-foreground">

@@ -11,6 +11,7 @@
 		type Language,
 		type Hobby
 	} from '$lib/components/types';
+	import Contact from '$lib/components/Contact.svelte';
 
 	const education: Education[] = [
 		{
@@ -150,4 +151,12 @@
 	{hobbies}
 />
 <WorkExperience />
+<Contact
+	title="Let's Connect"
+	subtitle="Seeking solutions to interesting tech puzzles? Drop me a line."
+	email="michna12@gmail.com"
+	location="Prague, Czech Republic"
+	availability="Available for challenging opportunities"
+	linkedin="https://www.linkedin.com/in/tomáš-michna-69760290/"
+/>
 <Footer />

@@ -1,4 +1,3 @@
-<!-- src/lib/components/sections/Works.svelte -->
 <script lang="ts">
 	const projects = [
 		{
