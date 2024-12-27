@@ -1,40 +1,10 @@
 <script lang="ts">
-	const projects = [
-		{
-			title: 'OUTFINDO Data Engineering',
-			period: '2021 - Present',
-			description:
-				'Developed ETL pipelines and data processing systems using Python, FastAPI, and Airflow',
-			technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Airflow', 'Docker'],
-			highlights: [
-				'Implemented scalable data processing pipelines',
-				'Built RESTful APIs with FastAPI',
-				'Orchestrated ETL tasks using Airflow'
-			]
-		},
-		{
-			title: '3D Bin Picking System',
-			period: '2020 - 2021',
-			description: 'Computer vision solution for automated bin picking at SANEZOO',
-			technologies: ['C++', 'CUDA', 'Python', 'Computer Vision'],
-			highlights: [
-				'Developed 3D object detection algorithms',
-				'Optimized performance using CUDA',
-				'Implemented real-time processing systems'
-			]
-		},
-		{
-			title: 'HPC Graph Theory Research',
-			period: '2019 - 2020',
-			description:
-				'Research on graph theory problems using high-performance computing at IT4Innovations',
-			technologies: ['C++', 'HPC', 'Graph Theory', 'Parallel Computing'],
-			highlights: [
-				'Implemented parallel algorithms for graph problems',
-				'Optimized computations for supercomputer architecture'
-			]
-		}
-	];
+	import { type Project } from './types';
+	interface Props {
+		projects: Project[];
+	}
+
+	let { projects }: Props = $props();
 </script>
 
 <section id="work-experience" class="bg-background py-20">

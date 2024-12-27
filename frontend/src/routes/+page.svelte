@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Hero from '$lib/components/Hero.svelte';
 	import AboutMe from '$lib/components/AboutMe.svelte';
-	import WorkExperience from '$lib/components/WorkExperience.svelte';
+	import Experience from '$lib/components/Experience.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import {
 		type Education,
@@ -9,7 +9,8 @@
 		type Achievement,
 		type Certification,
 		type Language,
-		type Hobby
+		type Hobby,
+		type Project
 	} from '$lib/components/types';
 	import Contact from '$lib/components/Contact.svelte';
 
@@ -130,6 +131,43 @@
 			description: 'Continuous learning in mathematics, algorithms and new technologies'
 		}
 	];
+
+	const projects: Project[] = [
+		{
+			title: 'OUTFINDO Data Engineering',
+			period: '2021 - Present',
+			description:
+				'Developed ETL pipelines and data processing systems using Python, FastAPI, and Airflow',
+			technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Airflow', 'Docker'],
+			highlights: [
+				'Implemented scalable data processing pipelines',
+				'Built RESTful APIs with FastAPI',
+				'Orchestrated ETL tasks using Airflow'
+			]
+		},
+		{
+			title: '3D Bin Picking System',
+			period: '2020 - 2021',
+			description: 'Computer vision solution for automated bin picking at SANEZOO',
+			technologies: ['C++', 'CUDA', 'Python', 'Computer Vision'],
+			highlights: [
+				'Developed 3D object detection algorithms',
+				'Optimized performance using CUDA',
+				'Implemented real-time processing systems'
+			]
+		},
+		{
+			title: 'HPC Graph Theory Research',
+			period: '2019 - 2020',
+			description:
+				'Research on graph theory problems using high-performance computing at IT4Innovations',
+			technologies: ['C++', 'HPC', 'Graph Theory', 'Parallel Computing'],
+			highlights: [
+				'Implemented parallel algorithms for graph problems',
+				'Optimized computations for supercomputer architecture'
+			]
+		}
+	];
 </script>
 
 <Hero
@@ -150,7 +188,7 @@
 	{languages}
 	{hobbies}
 />
-<WorkExperience />
+<Experience {projects} />
 <Contact
 	title="Let's Connect"
 	subtitle="Seeking solutions to interesting tech puzzles? Drop me a line."

@@ -46,3 +46,11 @@ export interface Hobby {
 	name: string;
 	description?: string;
 }
+
+export interface Project {
+	title: string;
+	period: string;
+	description: string;
+	technologies: string[];
+	highlights: string[];
+}
