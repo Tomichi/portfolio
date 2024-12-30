@@ -28,15 +28,15 @@ jobs:
          context: .
          push: true
          tags: |
-           ghcr.io/${{ github.repository }}:latest
-           ghcr.io/${{ github.repository }}:${{ github.sha }}
+           ghcr.io/tomichi:latest
+           ghcr.io/tomichi:${{ github.sha }}
          cache-from: type=gha
          cache-to: type=gha,mode=max
 
      - name: Security scan
        uses: aquasecurity/trivy-action@master
        with:
-         image-ref: ghcr.io/${{ github.repository }}:${{ github.sha }}
+         image-ref: ghcr.io/tomichi:${{ github.sha }}
          format: 'table'
          exit-code: '1'
          ignore-unfixed: true
