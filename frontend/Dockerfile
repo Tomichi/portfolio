@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:20.11-alpine3.19 AS builder
+FROM node:20.11-alpine3.19 AS builder
 
 WORKDIR /app
 
@@ -17,19 +17,19 @@ RUN corepack enable && \
     corepack prepare pnpm@8.15.1 --activate
 
 # Copy package files first (better layer caching)
-COPY package.json ./
+COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies without frozen-lockfile first time
-RUN pnpm install --no-frozen-lockfile
+# Install dependencies
+RUN pnpm install
 
 # Copy source code
 COPY . .
 
 # Build the application
-RUN pnpm build
+RUN pnpm build && pnpm prune --prod
 
 # Production stage
-FROM --platform=linux/amd64 node:20.11-alpine3.19
+FROM node:20.11-alpine3.19
 
 WORKDIR /app
 
@@ -42,14 +42,9 @@ RUN addgroup -S -g 1001 appgroup && \
 
 # Copy only necessary files from builder
 COPY --from=builder /app/build ./build
+COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./
 
-# Install production dependencies only
-RUN corepack enable && \
-    corepack prepare pnpm@8.15.1 --activate && \
-    pnpm install --prod --no-frozen-lockfile && \
-    pnpm store prune && \
-    rm -rf /pnpm/store
 
 # Set proper ownership
 RUN chown -R appuser:appgroup /app
@@ -63,4 +58,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=20s --retries=3 \
 EXPOSE 3000
 
 ENTRYPOINT ["/sbin/tini", "--"]
-CMD ["node", "build"]
+CMD ["node", "build/index.js"]
