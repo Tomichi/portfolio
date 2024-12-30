@@ -3,8 +3,7 @@ FROM node:20.11-alpine3.19 AS builder
 WORKDIR /app
 
 # Consolidate environment variables
-ENV NODE_ENV=production \
-    PNPM_HOME="/pnpm" \
+ENV PNPM_HOME="/pnpm" \
     PATH="$PNPM_HOME:$PATH" \
     HUSKY=0 \
     CI=true
