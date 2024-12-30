@@ -26,18 +26,17 @@ jobs:
        uses: docker/build-push-action@v4
        with:
          context: ./frontend
-         file: ./frontend/Dockerfile
          push: true
          tags: |
-           ghcr.io/tomichi:latest
-           ghcr.io/tomichi:${{ github.sha }}
+           ghcr.io/tomichi/portfolio:latest
+           ghcr.io/tomichi/portfolio:${{ github.sha }}
          cache-from: type=gha
          cache-to: type=gha,mode=max
 
      - name: Security scan
        uses: aquasecurity/trivy-action@master
        with:
-         image-ref: ghcr.io/tomichi:${{ github.sha }}
+         image-ref: ghcr.io/tomichi/portfolio:${{ github.sha }}
          format: 'table'
          exit-code: '1'
          ignore-unfixed: true
