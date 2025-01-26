@@ -192,9 +192,10 @@
 <Contact
 	title="Let's Connect"
 	subtitle="Seeking solutions to interesting tech puzzles? Drop me a line."
-	email="michna12@gmail.com"
+	email="contact@tomas-michna.com"
 	location="Prague, Czech Republic"
 	availability="Available for challenging opportunities"
-	linkedin="https://www.linkedin.com/in/tomáš-michna-69760290/"
+	linkedInLink="https://www.linkedin.com/in/tomáš-michna-69760290/"
+	githubLink="https://github.com/tomichi"
 />
 <Footer />
