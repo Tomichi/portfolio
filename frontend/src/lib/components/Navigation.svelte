@@ -1,19 +1,26 @@
 <script lang="ts">
-	import LinkedIn from '../icons/LinkedIn.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle/ThemeToggle.svelte';
 	import NavLink from '$lib/components/NavLink.svelte';
 	import { scrollToSection } from '$lib/stores/scroll';
+	import { page } from '$app/stores';
 
 	const navLinks = [
-		{ href: '#about', label: 'About' },
-		{ href: '#work-experience', label: 'Experience' },
-		{ href: '#contact', label: 'Contact' }
+		{ href: '/#about', label: 'About' },
+		{ href: '/#work-experience', label: 'Experience' },
+		{ href: '/#contact', label: 'Contact' },
+		{ href: '/blog', label: 'Blog' }
 	];
 
 	function handleNavClick(event: MouseEvent, href: string) {
-		if (href.startsWith('#')) {
+		if (href.startsWith('/#')) {
 			event.preventDefault();
-			scrollToSection(href);
+			const isOnBlogRoute = $page.url.pathname.startsWith('/blog');
+
+			if (isOnBlogRoute) {
+				window.location.href = href;
+			} else {
+				scrollToSection(href.substring(1));
+			}
 		}
 	}
 </script>
@@ -23,7 +30,7 @@
 >
 	<div class="container mx-auto px-4 py-3">
 		<div class="flex items-center justify-between">
-			<NavLink href="#welcome" onClick={(e) => handleNavClick(e, '#welcome')}>
+			<NavLink href="/" onClick={(e) => handleNavClick(e, '/#welcome')}>
 				<span class="text-2xl font-bold">Tomáš Michna</span>
 			</NavLink>
 
@@ -33,10 +40,6 @@
 						{link.label}
 					</NavLink>
 				{/each}
-
-				<NavLink href="https://www.linkedin.com/in/tomáš-michna-69760290/" external={true}>
-					<LinkedIn class="h-6 w-6" />
-				</NavLink>
 				<ThemeToggle />
 			</div>
 		</div>

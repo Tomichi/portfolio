@@ -48,5 +48,4 @@ class ThemeStore {
 	}
 }
 
-// Export singleton instance
 export const themeStore = new ThemeStore();

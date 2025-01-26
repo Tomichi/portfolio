@@ -25,52 +25,79 @@
 		</div>
 
 		<div class="mx-auto max-w-2xl">
-			<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-				<div class="space-y-6">
-					<div>
-						<h3 class="mb-3 text-xl font-semibold">Email</h3>
-						<a
-							href="mailto:{email}"
-							class="group inline-flex items-center gap-2 text-lg text-primary hover:underline"
-						>
-							<Gmail class="h-4 w-4 transition-transform group-hover:scale-110" />
-							{email}
-						</a>
-					</div>
-					<div class="space-y-3">
-						<h3 class="mb-3 text-xl font-semibold">LinkedIn</h3>
-						<a
-							href={linkedInLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group inline-flex items-center gap-2 text-lg text-primary hover:underline"
-						>
-							<LinkedIn class="h-4 w-4 transition-transform group-hover:scale-110" /> LinkedIn Profile
-						</a>
+			<div class="rounded-lg border border-border bg-card p-5 shadow-lg">
+				<div class="grid gap-3">
+					<a
+						href="mailto:{email}"
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<Gmail class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
+								<h3 class="text-lg font-medium">Email</h3>
+							</div>
+							<span class="text-base text-primary group-hover:underline">
+								{email}
+							</span>
+						</div>
+					</a>
+
+					<a
+						href={linkedInLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<LinkedIn class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
+								<h3 class="text-lg font-medium">LinkedIn</h3>
+							</div>
+							<span class="text-base text-primary group-hover:underline"> View Profile → </span>
+						</div>
+					</a>
+
+					<a
+						href={githubLink}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<Github class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
+								<h3 class="text-lg font-medium">Github</h3>
+							</div>
+							<span class="text-base text-primary group-hover:underline"> View Profile → </span>
+						</div>
+					</a>
+
+					<div
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<GoogleMaps
+									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
+								/>
+								<h3 class="text-lg font-medium">Location</h3>
+							</div>
+							<span class="text-base text-muted-foreground">
+								{location}
+							</span>
+						</div>
 					</div>
 
-					<div>
-						<h3 class="mb-3 text-xl font-semibold">Github</h3>
-						<a
-							href={githubLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group inline-flex items-center gap-2 text-lg text-primary hover:underline"
+					<div class="mt-2 flex items-center justify-center">
+						<span
+							class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary ring-1 ring-primary/20"
 						>
-							<Github class="h-4 w-4 transition-transform group-hover:scale-110" /> Github Profile
-						</a>
-					</div>
-
-					<div>
-						<h3 class="mb-3 text-xl font-semibold">Location</h3>
-						<p class="group inline-flex gap-2 text-lg text-muted-foreground">
-							<GoogleMaps class="h-5 w-5 transition-transform group-hover:scale-110" />
-							{location}
-						</p>
-					</div>
-
-					<div class="pt-4">
-						<span class="rounded-full bg-primary/10 px-4 py-2 text-sm text-primary">
+							<span class="relative flex h-2 w-2">
+								<span
+									class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-700 opacity-75"
+								></span>
+								<span class="relative inline-flex h-2 w-2 rounded-full bg-green-700"></span>
+							</span>
 							{availability}
 						</span>
 					</div>

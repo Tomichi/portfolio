@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Navigation from '../lib/components/Navigation.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import { flushSync } from 'svelte';
 	import { createThemeInitScript, cleanupThemeScript } from '$lib/theme/initalize';
 	import '../app.css';
@@ -23,3 +24,5 @@
 	<Navigation />
 	{@render children()}
 </div>
+
+<Footer />

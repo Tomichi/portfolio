@@ -2,7 +2,6 @@
 	import Hero from '$lib/components/Hero.svelte';
 	import AboutMe from '$lib/components/AboutMe.svelte';
 	import Experience from '$lib/components/Experience.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 	import Contact from '$lib/components/Contact.svelte';
 	import type { PageData } from './$types';
 
@@ -37,4 +36,3 @@
 	linkedInLink={data.profile.contact.linkedInLink}
 	githubLink={data.profile.contact.githubLink}
 />
-<Footer />

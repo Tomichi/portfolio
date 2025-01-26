@@ -176,16 +176,18 @@ export function load() {
 		hobbies,
 		projects,
 		profile: {
-			name: "Tomáš Michna",
-			role: "Data Engineer / R&D",
-			imageUrl: "https://media.licdn.com/dms/image/v2/D4D03AQGy1KMpva_UKw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699305399980?e=1740614400&v=beta&t=C-FI87XRtT_6DxNE8HD8MeO0buWHhaBnW0pcgS_R79Q",
-			professionalSummary: "Data Engineer & Research Engineer with expertise in computer vision and machine learning. Combining strong mathematical background with practical engineering skills to build scalable data solutions and intelligent systems. Experienced in high-performance computing and parallel programming.",
+			name: 'Tomáš Michna',
+			role: 'Data Engineer / R&D',
+			imageUrl:
+				'https://media.licdn.com/dms/image/v2/D4D03AQGy1KMpva_UKw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699305399980?e=1740614400&v=beta&t=C-FI87XRtT_6DxNE8HD8MeO0buWHhaBnW0pcgS_R79Q',
+			professionalSummary:
+				'Data Engineer & Research Engineer with expertise in computer vision and machine learning. Combining strong mathematical background with practical engineering skills to build scalable data solutions and intelligent systems. Experienced in high-performance computing and parallel programming.',
 			contact: {
-				email: "contact@tomas-michna.com",
-				location: "Prague, Czech Republic",
-				availability: "Available for challenging opportunities",
-				linkedInLink: "https://www.linkedin.com/in/tomáš-michna-69760290/",
-				githubLink: "https://github.com/tomichi"
+				email: 'contact@tomas-michna.com',
+				location: 'Prague, Czech Republic',
+				availability: 'Available for challenging opportunities',
+				linkedInLink: 'https://www.linkedin.com/in/tomáš-michna-69760290/',
+				githubLink: 'https://github.com/tomichi'
 			}
 		}
 	};
