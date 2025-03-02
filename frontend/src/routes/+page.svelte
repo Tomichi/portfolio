@@ -11,7 +11,6 @@
 <Hero
 	name={data.profile.name}
 	role={data.profile.role}
-	imageUrl={data.profile.imageUrl}
 	buttonText="Get in Touch"
 	buttonHref="#contact"
 />

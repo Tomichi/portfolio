@@ -2,11 +2,10 @@
 	interface Props {
 		name: string;
 		role: string;
-		imageUrl: string;
 		buttonText: string;
 		buttonHref: string;
 	}
-	let { name, role, imageUrl, buttonText, buttonHref }: Props = $props();
+	let { name, role, buttonText, buttonHref }: Props = $props();
 </script>
 
 <section
@@ -20,7 +19,7 @@
 					loading="lazy"
 					decoding="async"
 					class="h-[160px] w-[160px] rounded-full border-2 border-muted object-cover transition-transform duration-300 hover:scale-105 md:h-[350px] md:w-[350px]"
-					src={imageUrl}
+					src="/me.jpeg"
 					alt={`${name} - Photo`}
 				/>
 			</div>
