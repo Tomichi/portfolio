@@ -40,34 +40,36 @@
 	}
 
 	.dark {
-		--background: 222.2 84% 5.9%;
-		--foreground: 210 40% 98%;
+		--background: 0 0% 10%;
+		--foreground: 0 0% 100%;
 
-		--muted: 217.2 32.6% 22%;
+		--muted: 0 0% 20%;
 		--muted-foreground: 215 20.2% 85%;
 
-		--popover: 222.2 80% 7%;
-		--popover-foreground: 210 40% 98%;
+		--popover: 0 0% 8%;
+		--popover-foreground: 0 0% 100%;
 
-		--card: 222.2 84% 7%;
-		--card-foreground: 210 40% 98%;
+		--card: 0 0% 8%;
+		--card-foreground: 0 0% 100%;
 
-		--border: 217.2 32.6% 35%;
-		--input: 217.2 32.6% 35%;
+		--border: 0 0% 25%;
+		--input: 0 0% 25%;
 
-		--primary: 210 40% 98%;
-		--primary-foreground: 222.2 47.4% 11.2%;
+		--primary: 0 0% 100%;
+		--primary-foreground: 0 0% 0%;
 
-		--secondary: 217.2 32.6% 35%;
-		--secondary-foreground: 210 40% 98%;
+		--secondary: 0 0% 20%;
+		--secondary-foreground: 0 0% 100%;
 
-		--accent: 217.2 32.6% 35%;
-		--accent-foreground: 210 40% 98%;
+		--accent: 0 0% 25%;
+		--accent-foreground: 0 0% 100%;
 
-		--destructive: 0 62.8% 60%;
+		--destructive: 0 63% 31%;
 		--destructive-foreground: 210 40% 98%;
 
-		--ring: 217.2 32.6% 35%;
+		--ring: 0 0% 25%;
+
+		background: linear-gradient(to bottom, hsl(0, 0%, 8%), hsl(0, 0%, 10%));
 	}
 }
 
@@ -76,7 +78,7 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground min-h-screen;
 		font-feature-settings:
 			'rlig' 1,
 			'calt' 1;
@@ -96,6 +98,11 @@
 			'YTFI' 738,
 			'YTLC' 514,
 			'YTUC' 712;
+	}
+
+	body.dark {
+		background-attachment: fixed;
+		background-size: cover;
 	}
 }
 
