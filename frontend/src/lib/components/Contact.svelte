@@ -3,6 +3,7 @@
 	import GoogleMaps from '$lib/icons/GoogleMaps.svelte';
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
 	import Github from '$lib/icons/Github.svelte';
+	import Number from '$lib/icons/Number.svelte';
 	interface Props {
 		title: string;
 		subtitle: string;
@@ -11,8 +12,10 @@
 		availability: string;
 		linkedInLink: string;
 		githubLink: string;
+		icoNumber: string;
+		billingAddress: string;
 	}
-	let { title, subtitle, email, location, availability, linkedInLink, githubLink }: Props =
+	let { title, subtitle, email, location, availability, linkedInLink, githubLink, icoNumber, billingAddress }: Props =
 		$props();
 </script>
 
@@ -88,6 +91,41 @@
 						</div>
 					</div>
 
+					<div
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<GoogleMaps
+									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
+								/>
+								<h3 class="text-lg font-medium">Billing address</h3>
+							</div>
+							<span class="text-base text-muted-foreground">
+								{billingAddress}
+							</span>
+						</div>
+					</div>
+
+
+
+					<div
+						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
+					>
+						<div class="flex items-center justify-between">
+							<div class="flex items-center gap-3">
+								<Number
+									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
+								/>
+								<h3 class="text-lg font-medium">IČO</h3>
+							</div>
+							<span class="text-base text-muted-foreground">
+								{icoNumber}
+							</span>
+						</div>
+					</div>
+
+
 					<div class="mt-2 flex items-center justify-center">
 						<span
 							class="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary ring-1 ring-primary/20"
@@ -101,6 +139,8 @@
 							{availability}
 						</span>
 					</div>
+
+					
 				</div>
 			</div>
 		</div>

@@ -34,4 +34,6 @@
 	availability={data.profile.contact.availability}
 	linkedInLink={data.profile.contact.linkedInLink}
 	githubLink={data.profile.contact.githubLink}
+	icoNumber={data.profile.contact.icoNumber}
+	billingAddress={data.profile.contact.billingAddress}
 />

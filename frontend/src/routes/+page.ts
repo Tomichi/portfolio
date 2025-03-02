@@ -185,7 +185,9 @@ export function load() {
 				location: 'Prague, Czech Republic',
 				availability: 'Temporary unavailable for challenging opportunities',
 				linkedInLink: 'https://www.linkedin.com/in/tomáš-michna-69760290/',
-				githubLink: 'https://github.com/tomichi'
+				githubLink: 'https://github.com/tomichi',
+				icoNumber: '02090121',
+				billingAddress: 'Hraniční 112, Frýdek-Místek, Czech Republic'
 			}
 		}
 	};
