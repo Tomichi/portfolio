@@ -132,8 +132,18 @@ export function load() {
 
 	const projects: Project[] = [
 		{
+			title: 'Mediaboard Developer',
+			period: '04/2025 - Present',
+			description:
+				'TBD',
+			technologies: ['Python', 'Django'],
+			highlights: [
+				'TBD',
+			]
+		},
+		{
 			title: 'OUTFINDO Data Engineering',
-			period: '2021 - Present',
+			period: '08/2021 - 03/2025',
 			description:
 				'Developed ETL pipelines and data processing systems using Python, FastAPI, and Airflow',
 			technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Airflow', 'Docker'],
@@ -145,7 +155,7 @@ export function load() {
 		},
 		{
 			title: '3D Bin Picking System',
-			period: '2020 - 2021',
+			period: '07/2020 - 07/2021',
 			description: 'Computer vision solution for automated bin picking at SANEZOO',
 			technologies: ['C++', 'CUDA', 'Python', 'Computer Vision'],
 			highlights: [
@@ -156,7 +166,7 @@ export function load() {
 		},
 		{
 			title: 'HPC Graph Theory Research',
-			period: '2019 - 2020',
+			period: '01/2019 - 06/2020',
 			description:
 				'Research on graph theory problems using high-performance computing at IT4Innovations',
 			technologies: ['C++', 'HPC', 'Graph Theory', 'Parallel Computing'],
