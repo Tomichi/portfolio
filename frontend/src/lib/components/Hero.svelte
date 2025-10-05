@@ -18,7 +18,7 @@
 				<img
 					loading="lazy"
 					decoding="async"
-					class="h-[160px] w-[160px] rounded-full border-2 border-muted object-cover transition-transform duration-300 hover:scale-105 md:h-[350px] md:w-[350px]"
+					class="h-[160px] w-[160px] rounded-full border-2 border-muted object-cover transition-transform duration-300 hover:scale-105 hover:cursor-pointer md:h-[350px] md:w-[350px]"
 					src="/me.jpeg"
 					alt={`${name} - Photo`}
 				/>
