@@ -81,7 +81,6 @@
 										{:else}
 											<span class="text-sm text-primary">{award.name}</span>
 										{/if}
-										{#if i === edu.awards.length - 1} {/if}
 									{/each}
 								</div>
 							<p class="text-sm text-muted-foreground">

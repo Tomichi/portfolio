@@ -18,7 +18,7 @@ export default defineConfig({
         rollupOptions: {
           output: {
             manualChunks: {
-              vendor: ['svelte', '@sveltejs/kit'],
+              vendor: ['svelte'],
             },
             // Optimize chunk naming and organization
             chunkFileNames: 'js/[name]-[hash].js',
