@@ -31,6 +31,7 @@ export interface Education {
 	thesis?: Thesis;
 	awards: Award[];
 	description: string;
+	logo?: string;
 }
 
 export interface Achievement {
@@ -38,6 +39,7 @@ export interface Achievement {
 }
 
 export interface Language {
+	emoji: string;
 	name: string;
 	level: string;
 }
@@ -48,7 +50,10 @@ export interface Hobby {
 }
 
 export interface Project {
-	title: string;
+	company: string;
+	companyUrl?: string;
+	logo: string;
+	position: string;
 	period: string;
 	description: string;
 	technologies: string[];

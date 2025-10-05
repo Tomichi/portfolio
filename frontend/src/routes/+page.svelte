@@ -16,7 +16,7 @@
 />
 <AboutMe
 	title="About me"
-	subtitle="Data Engineer & Computer Vision Specialist with Strong Mathematical Foundation"
+	subtitle="Data engineer & computer vision specialist with strong mathematical foundation"
 	professionalSummary={data.profile.professionalSummary}
 	education={data.education}
 	skills={data.skills}
@@ -27,7 +27,7 @@
 />
 <Experience projects={data.projects} />
 <Contact
-	title="Let's Connect"
+	title="Let's connect"
 	subtitle="Seeking solutions to interesting tech puzzles? Drop me a line."
 	email={data.profile.contact.email}
 	location={data.profile.contact.location}

@@ -15,7 +15,8 @@ export function load() {
 		{
 			degree: "Master's in Computational Mathematics",
 			institution: 'VSB - Technical University of Ostrava',
-			period: '2018-2020',
+			logo: 'fei_logo.jpeg',
+			period: '2018 - 2020',
 			thesis: {
 				name: 'Graph Theory Tools Used for BEM',
 				url: 'https://dspace.vsb.cz/handle/10084/140601'
@@ -35,7 +36,8 @@ export function load() {
 		{
 			degree: "Bachelor's in Computational Mathematics",
 			institution: 'VSB - Technical University of Ostrava',
-			period: '2015-2018',
+			logo: 'fei_logo.jpeg',
+			period: '2015 - 2018',
 			thesis: {
 				name: 'Graph labelings',
 				url: 'https://dspace.vsb.cz/handle/10084/128474'
@@ -53,11 +55,11 @@ export function load() {
 
 	const skills: Skill[] = [
 		{
-			category: 'Data Engineering',
+			category: 'Data engineering',
 			items: ['Python (FastAPI, Scrapy)', 'PostgreSQL', 'ETL Pipeline Design', 'Airflow', 'Docker']
 		},
 		{
-			category: 'Machine Learning & CV',
+			category: 'Machine learning & computer vision',
 			items: [
 				'PyTorch',
 				'Deep Learning',
@@ -68,7 +70,7 @@ export function load() {
 			]
 		},
 		{
-			category: 'Scientific Computing',
+			category: 'Scientific computing',
 			items: ['HPC', 'Graph Theory', 'NumPy', 'Computational Mathematics', 'Algorithm Design']
 		}
 	];
@@ -78,9 +80,9 @@ export function load() {
 			text: '2nd Place at European Healthcare Hackathon - Hospital Surveillance AI Project (2023)'
 		},
 		{ text: 'Best Thesis Award - Applied Mathematics Department (2018 & 2020)' },
-		{ text: 'Member of Support Talented Students Program (2016-2020)' },
+		{ text: 'Member of Support Talented Students Program (2016 - 2020)' },
 		{
-			text: 'ICPC Programming Contest: 3x CERC (Central European Regional Contest) Participant (2015-2017)'
+			text: 'ICPC Programming Contest: 3x CERC (Central European Regional Contest) Participant (2015 - 2017)'
 		}
 	];
 
@@ -98,14 +100,17 @@ export function load() {
 
 	const languages: Language[] = [
 		{
-			name: 'English',
-			level: 'Upper Intermediate B2'
-		},
-		{
+			emoji: '🇨🇿',
 			name: 'Czech',
 			level: 'Native'
 		},
 		{
+			emoji: '🇬🇧',
+			name: 'English',
+			level: 'Upper Intermediate B2'
+		},
+		{
+			emoji: '🇳🇴',
 			name: 'Norwegian (Bokmål)',
 			level: 'Basic A2'
 		}
@@ -113,7 +118,7 @@ export function load() {
 
 	const hobbies: Hobby[] = [
 		{
-			name: 'Climbing & Bouldering',
+			name: 'Climbing & bouldering',
 			description: 'Regular climber with focus on technical routes and problem solving'
 		},
 		{
@@ -121,7 +126,7 @@ export function load() {
 			description: 'Active mountaineer'
 		},
 		{
-			name: 'Competitive Programming',
+			name: 'Competitive programming',
 			description: 'Project Euler (50+ problems), UVA Online Judge participant'
 		},
 		{
@@ -132,17 +137,23 @@ export function load() {
 
 	const projects: Project[] = [
 		{
-			title: 'Mediaboard Developer',
+			company: 'Mediaboard',
+			companyUrl: 'https://mediaboard.com',
+			logo: 'mediaboard_logo.jpeg',
+			position: 'Data engineer',
 			period: '04/2025 - Present',
 			description:
-				'TBD',
+				'Working on NLP models for media content',
 			technologies: ['Python', 'Django'],
 			highlights: [
-				'TBD',
+				'Working on NLP tasks',
 			]
 		},
 		{
-			title: 'OUTFINDO Data Engineering',
+			company: 'Outfindo',
+			companyUrl: 'https://outfindo.com',
+			logo: 'outfindo_logo.jpeg',
+			position: 'Data engineer',
 			period: '08/2021 - 03/2025',
 			description:
 				'Developed ETL pipelines and data processing systems using Python, FastAPI, and Airflow',
@@ -154,9 +165,12 @@ export function load() {
 			]
 		},
 		{
-			title: '3D Bin Picking System',
+			company: 'Sanezoo',
+			companyUrl: 'https://sanezoo.com',
+			logo: 'sanezoo_logo.jpeg',
+			position: 'Computer vision engineer',
 			period: '07/2020 - 07/2021',
-			description: 'Computer vision solution for automated bin picking at SANEZOO',
+			description: 'Computer vision solution for automated bin picking at Sanezoo',
 			technologies: ['C++', 'CUDA', 'Python', 'Computer Vision'],
 			highlights: [
 				'Developed 3D object detection algorithms',
@@ -165,7 +179,10 @@ export function load() {
 			]
 		},
 		{
-			title: 'HPC Graph Theory Research',
+			company: 'IT4Innovations',
+			companyUrl: 'https://www.it4i.cz/',
+			logo: 'it4innovations_logo.jpeg',
+			position: 'Research engineer',
 			period: '01/2019 - 06/2020',
 			description:
 				'Research on graph theory problems using high-performance computing at IT4Innovations',
@@ -187,7 +204,7 @@ export function load() {
 		projects,
 		profile: {
 			name: 'Tomáš Michna',
-			role: 'Data Engineer / R&D',
+			role: 'Data engineer / R&D',
 			professionalSummary:
 				'Data Engineer & Research Engineer with expertise in computer vision and machine learning. Combining strong mathematical background with practical engineering skills to build scalable data solutions and intelligent systems. Experienced in high-performance computing and parallel programming.',
 			contact: {

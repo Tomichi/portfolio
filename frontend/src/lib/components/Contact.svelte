@@ -4,6 +4,7 @@
 	import LinkedIn from '$lib/icons/LinkedIn.svelte';
 	import Github from '$lib/icons/Github.svelte';
 	import Number from '$lib/icons/Number.svelte';
+	import ContactRow from '$lib/components/ContactRow.svelte';
 	interface Props {
 		title: string;
 		subtitle: string;
@@ -30,101 +31,30 @@
 		<div class="mx-auto max-w-2xl">
 			<div class="rounded-lg border border-border bg-card p-5 shadow-lg">
 				<div class="grid gap-3">
-					<a
-						href="mailto:{email}"
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<Gmail class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
-								<h3 class="text-lg font-medium">Email</h3>
-							</div>
-							<span class="text-base text-primary group-hover:underline">
-								{email}
-							</span>
-						</div>
-					</a>
-
-					<a
-						href={linkedInLink}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<LinkedIn class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
-								<h3 class="text-lg font-medium">LinkedIn</h3>
-							</div>
-							<span class="text-base text-primary group-hover:underline"> View Profile → </span>
-						</div>
-					</a>
-
-					<a
-						href={githubLink}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<Github class="h-5 w-5 text-primary transition-transform group-hover:scale-110" />
-								<h3 class="text-lg font-medium">Github</h3>
-							</div>
-							<span class="text-base text-primary group-hover:underline"> View Profile → </span>
-						</div>
-					</a>
-
-					<div
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<GoogleMaps
-									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
-								/>
-								<h3 class="text-lg font-medium">Location</h3>
-							</div>
-							<span class="text-base text-muted-foreground">
-								{location}
-							</span>
-						</div>
-					</div>
-
-					<div
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<GoogleMaps
-									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
-								/>
-								<h3 class="text-lg font-medium">Billing address</h3>
-							</div>
-							<span class="text-base text-muted-foreground">
-								{billingAddress}
-							</span>
-						</div>
-					</div>
-
-
-
-					<div
-						class="group block transform rounded-md border border-transparent p-2.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20 hover:bg-primary/5"
-					>
-						<div class="flex items-center justify-between">
-							<div class="flex items-center gap-3">
-								<Number
-									class="h-5 w-5 text-primary transition-transform group-hover:scale-110"
-								/>
-								<h3 class="text-lg font-medium">IČO</h3>
-							</div>
-							<span class="text-base text-muted-foreground">
-								{icoNumber}
-							</span>
-						</div>
-					</div>
-
+					<ContactRow href="mailto:{email}" value={email}>
+						<Gmail class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">Email</h3>
+					</ContactRow>
+					<ContactRow href={linkedInLink} value={linkedInLink}>
+						<LinkedIn class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">LinkedIn</h3>
+					</ContactRow>
+					<ContactRow href={githubLink} value={githubLink}>
+						<Github class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">Github</h3>
+					</ContactRow>
+					<ContactRow value={location}>
+						<GoogleMaps class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">Location</h3>
+					</ContactRow>
+					<ContactRow value={billingAddress}>
+						<GoogleMaps class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">Billing address</h3>
+					</ContactRow>
+					<ContactRow value={icoNumber}>
+						<Number class="h-5 w-5 text-primary transition-all duration-300 group-hover:text-primary/90" />
+						<h3 class="text-lg font-medium">IČO</h3>
+					</ContactRow>
 
 					<div class="mt-2 flex items-center justify-center">
 						<span

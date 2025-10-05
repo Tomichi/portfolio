@@ -47,7 +47,7 @@
 			<div class="space-y-6">
 				<!-- Professional Summary -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Professional Summary</h3>
+					<h3 class="mb-4 text-xl font-semibold">Professional summary</h3>
 					<p class="leading-relaxed text-muted-foreground">
 						{professionalSummary}
 					</p>
@@ -57,46 +57,33 @@
 					<h3 class="mb-4 text-xl font-semibold">Education</h3>
 					{#each education as edu}
 						<div class="mb-6 space-y-3">
-							<h4 class="text-lg font-medium">{edu.degree}</h4>
-							<p class="text-sm text-muted-foreground">
-								{edu.institution} • {edu.period}
-							</p>
-
-							{#if edu.thesis}
-								<div class="text-sm">
-									<a
-										href={edu.thesis.url}
-										class="text-primary hover:underline"
-										target="_blank"
-										rel="noopener noreferrer"
-									>
-										{edu.thesis.name}
-									</a>
-									{#if edu.thesis.description}
-										<p class="mt-1 text-muted-foreground">{edu.thesis.description}</p>
-									{/if}
+							<div class="flex items-start gap-4">
+								{#if edu.logo}
+									<img src={edu.logo} alt={edu.institution} class="h-12 w-12 flex-shrink-0" />
+								{/if}
+								<div>
+									<h4 class="text-lg font-medium">{edu.degree}</h4>
+									<p class="text-sm text-muted-foreground">
+										{edu.institution} • {edu.period}
+									</p>
 								</div>
-							{/if}
+							</div>
 
-							{#if edu.awards?.length}
-								<div class="space-y-1">
-									{#each edu.awards as award}
+							
+								<div class="text-sm">
+									{#if edu.thesis}
+									<a href={edu.thesis.url} class="text-primary hover:underline" target="_blank" rel="noopener noreferrer">{edu.thesis.name}</a> • 
+									{/if}
+									{#each edu.awards as award, i}
+										{#if i > 0} • {/if}
 										{#if award.url}
-											<a
-												href={award.url}
-												class="block text-sm text-primary hover:underline"
-												target="_blank"
-												rel="noopener noreferrer"
-											>
-												{award.name}
-											</a>
+											<a href={award.url} class="inline text-sm text-primary hover:underline" target="_blank" rel="noopener noreferrer">{award.name}</a>
 										{:else}
-											<p class="text-sm text-primary">{award.name}</p>
+											<span class="text-sm text-primary">{award.name}</span>
 										{/if}
+										{#if i === edu.awards.length - 1} {/if}
 									{/each}
 								</div>
-							{/if}
-
 							<p class="text-sm text-muted-foreground">
 								{edu.description}
 							</p>
@@ -106,7 +93,7 @@
 
 				<!-- Certifications -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Professional Certifications</h3>
+					<h3 class="mb-4 text-xl font-semibold">Professional certifications</h3>
 					<div class="space-y-6">
 						{#each certifications as cert}
 							<div class="space-y-3">
@@ -128,7 +115,7 @@
 
 				<!-- Hobbies & Interests -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Hobbies & Interests</h3>
+					<h3 class="mb-4 text-xl font-semibold">Hobbies & interests</h3>
 					<div class="space-y-4">
 						{#each hobbies as hobby}
 							<div>
@@ -159,7 +146,7 @@
 
 				<!-- Achievements -->
 				<div class="rounded-lg border border-border bg-card p-6 shadow-sm">
-					<h3 class="mb-4 text-xl font-semibold">Additional Achievements</h3>
+					<h3 class="mb-4 text-xl font-semibold">Additional achievements</h3>
 					<ul class="space-y-3 text-muted-foreground">
 						{#each achievements as achievement}
 							<li class="flex items-start">
@@ -176,7 +163,7 @@
 					<div class="space-y-3">
 						{#each languages as lang}
 							<div class="flex items-center justify-between">
-								<span class="font-medium">{lang.name}</span>
+								<span class="font-medium">{lang.emoji} {lang.name}</span> 
 								<div class="text-sm">
 									<span class="text-primary">{lang.level}</span>
 								</div>
